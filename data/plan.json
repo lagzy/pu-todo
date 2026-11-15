@@ -13,47 +13,46 @@
       "date": "2026-11-17",
       "title": "Kuchenverkauf in der Stadt",
       "kind": "event",
-      "note": "Von Haus zu Haus · 2.00 CHF pro Stück · Break-even 13 Stück",
+      "note": "Schule → Migros → Haustüren · 2.00 CHF pro Stück",
       "prepLabel": "bis Mo 16.11.",
       "prep": [
         { "who": "vlad", "text": "Bewilligung klären" },
         { "who": "vlad", "text": "Preisliste und Kassabogen drucken" },
         { "who": "vlad", "text": "20 CHF Wechselgeld" },
-        { "who": "edward", "text": "Kuchen einkaufen (Migros)" },
-        { "who": "dorian", "text": "Folie und Taschen für die Stücke" }
+        { "who": "dorian", "text": "Folie, Taschen und Messer" }
       ],
       "blocks": [
         {
           "n": 1,
           "start": "13:30",
           "end": "14:30",
-          "title": "Schneiden und losziehen",
+          "title": "Schule, dann Migros",
           "tasks": [
-            { "who": ["vlad", "dorian", "edward"], "text": "Kuchen schneiden, Stücke in Folie einpacken" },
-            { "who": "vlad", "text": "Wechselgeld und Kasse einstecken" },
-            { "who": "edward", "text": "Route festlegen: welche Strassen zuerst" },
-            { "who": "dorian", "text": "Sorten und Allergene auf ein Blatt schreiben" },
-            { "who": "vlad", "text": "Foto vom Verkauf, keine Gesichter" }
+            { "who": ["vlad", "dorian", "edward"], "text": "1. Lektion in der Schule: Infos von Frau Stalder" },
+            { "who": "vlad", "text": "Notizen für den Wochenrapport machen" },
+            { "who": "edward", "text": "Kuchen kaufen: 6 Stück nach Plan, ein Bon" },
+            { "who": "dorian", "text": "Mit Edward zum Migros, tragen helfen" }
           ]
         },
         {
           "n": 2,
           "start": "14:30",
           "end": "15:30",
-          "title": "Runden in der Stadt",
+          "title": "Schneiden und erste Runde",
           "tasks": [
-            { "who": ["vlad", "dorian", "edward"], "text": "Von Haus zu Haus: klingeln, Stücke anbieten" },
-            { "who": "vlad", "text": "Kasse führen, Betrag aufs Blatt" },
-            { "who": "dorian", "text": "Allergene nennen, erklären was wir bauen" },
-            { "who": "edward", "text": "Nachschub holen, wenn Stücke ausgehen" }
+            { "who": ["vlad", "dorian", "edward"], "text": "Kuchen schneiden, Stücke in Folie einpacken" },
+            { "who": "vlad", "text": "Kasse und Wechselgeld einstecken" },
+            { "who": "dorian", "text": "Sorten und Allergene auf ein Blatt schreiben" },
+            { "who": "edward", "text": "Erste Strasse festlegen, losgehen" }
           ]
         },
         {
           "n": 3,
           "start": "15:30",
           "end": "16:10",
-          "title": "Kasse und Belege",
+          "title": "Zweite Runde und Kasse",
           "tasks": [
+            { "who": ["vlad", "dorian", "edward"], "text": "Weiter klingeln, bis die Stücke weg sind" },
             { "who": "vlad", "text": "Kasse zählen, Foto von Geld und Kuchen" },
             { "who": "edward", "text": "Belege sammeln, Abrechnung E-02" },
             { "who": "dorian", "text": "Reststücke der Klasse anbieten" }
