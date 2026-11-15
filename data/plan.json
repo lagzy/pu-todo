@@ -11,42 +11,41 @@
   "days": [
     {
       "date": "2026-11-17",
-      "title": "Kuchenverkauf",
+      "title": "Kuchenverkauf in der Stadt",
       "kind": "event",
-      "note": "2.00 CHF pro Stück · Break-even 13 Stück",
+      "note": "Von Haus zu Haus · 2.00 CHF pro Stück · Break-even 13 Stück",
       "prepLabel": "bis Mo 16.11.",
       "prep": [
-        { "who": "vlad", "text": "Bewilligung holen" },
-        { "who": "vlad", "text": "Schild und Kassabogen drucken" },
+        { "who": "vlad", "text": "Bewilligung klären" },
+        { "who": "vlad", "text": "Preisliste und Kassabogen drucken" },
         { "who": "vlad", "text": "20 CHF Wechselgeld" },
         { "who": "edward", "text": "Kuchen einkaufen (Migros)" },
-        { "who": "dorian", "text": "Teller, Servietten, Folie, Messer" }
+        { "who": "dorian", "text": "Folie und Taschen für die Stücke" }
       ],
       "blocks": [
         {
           "n": 1,
           "start": "13:30",
           "end": "14:30",
-          "title": "Stand aufbauen",
+          "title": "Schneiden und losziehen",
           "tasks": [
-            { "who": ["dorian", "edward"], "text": "1. Pause: verkaufen" },
-            { "who": "edward", "text": "Tisch aufstellen, Kuchen mitbringen" },
-            { "who": "dorian", "text": "Preisschild aufstellen, Sorten eintragen" },
-            { "who": "dorian", "text": "Erst beim ersten Kunden schneiden" },
-            { "who": "vlad", "text": "Bewilligung dabeihaben" },
-            { "who": "vlad", "text": "Stand fotografieren, keine Gesichter" }
+            { "who": ["vlad", "dorian", "edward"], "text": "Kuchen schneiden, Stücke in Folie einpacken" },
+            { "who": "vlad", "text": "Wechselgeld und Kasse einstecken" },
+            { "who": "edward", "text": "Route festlegen: welche Strassen zuerst" },
+            { "who": "dorian", "text": "Sorten und Allergene auf ein Blatt schreiben" },
+            { "who": "vlad", "text": "Foto vom Verkauf, keine Gesichter" }
           ]
         },
         {
           "n": 2,
           "start": "14:30",
           "end": "15:30",
-          "title": "Hauptverkauf",
+          "title": "Runden in der Stadt",
           "tasks": [
-            { "who": ["vlad", "dorian", "edward"], "text": "Grosse Pause: alle drei verkaufen" },
-            { "who": "vlad", "text": "Kasse zu zweit zählen" },
-            { "who": "dorian", "text": "Erklären, was wir bauen" },
-            { "who": "edward", "text": "Reststücke abdecken, kühl stellen" }
+            { "who": ["vlad", "dorian", "edward"], "text": "Von Haus zu Haus: klingeln, Stücke anbieten" },
+            { "who": "vlad", "text": "Kasse führen, Betrag aufs Blatt" },
+            { "who": "dorian", "text": "Allergene nennen, erklären was wir bauen" },
+            { "who": "edward", "text": "Nachschub holen, wenn Stücke ausgehen" }
           ]
         },
         {
@@ -55,9 +54,9 @@
           "end": "16:10",
           "title": "Kasse und Belege",
           "tasks": [
-            { "who": "vlad", "text": "Kasse zählen, Foto von Geld und Tisch" },
+            { "who": "vlad", "text": "Kasse zählen, Foto von Geld und Kuchen" },
             { "who": "edward", "text": "Belege sammeln, Abrechnung E-02" },
-            { "who": "dorian", "text": "Reste der Klasse anbieten, abbauen" }
+            { "who": "dorian", "text": "Reststücke der Klasse anbieten" }
           ]
         }
       ]
