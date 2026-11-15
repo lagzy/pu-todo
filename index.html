@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PU-Plan — wer macht was</title>
+<title>PU-Plan — was jetzt zu tun ist</title>
 <meta name="description" content="Was in der PU-Lektion jetzt zu tun ist — für Vlad, Dorian und Edward. Gruppe 22.">
-<meta name="theme-color" content="#f6f7f9">
-<link rel="stylesheet" href="style.css?v=1">
+<meta name="theme-color" content="#f8f9fa">
+<link rel="stylesheet" href="style.css?v=2">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📌</text></svg>">
 <script>
-  /* Thema vor dem ersten Zeichnen setzen, damit nichts hell aufblitzt */
   (function () {
     var t = null;
     try { t = localStorage.getItem("puplan.theme"); } catch (e) {}
@@ -21,20 +20,15 @@
 </head>
 <body>
 
-<header class="top">
-  <div class="brand">
-    <span class="pin" aria-hidden="true">📌</span>
-    <h1>PU-Plan</h1>
-    <span class="tag">Gruppe 22</span>
-  </div>
-  <div class="spacer"></div>
+<header>
+  <h1>PU-Plan</h1>
+  <span class="who">Gruppe 22</span>
+  <span class="spacer"></span>
   <span class="clock" id="clock">--:--</span>
-  <button class="theme-toggle" id="theme" type="button" aria-label="Hell oder dunkel">🌙</button>
+  <button id="theme" type="button" aria-label="Hell oder dunkel">🌙</button>
 </header>
 
-<main id="app" aria-live="polite">
-  <p class="loading">Lade Plan …</p>
-</main>
+<main id="app" aria-live="polite"></main>
 
 <section class="more" id="more" hidden>
   <h2>Weitere Diensttage</h2>
@@ -42,13 +36,9 @@
 </section>
 
 <footer>
-  <p>
-    Quelle: <code>data/plan.json</code> · Stand <span id="updated">—</span> ·
-    Grundlage: STATUS.md, Pendenzenliste v5, Kuchenverkauf-Plan.
-    Kein Häkchen-System: der Plan zeigt, was jetzt dran ist.
-  </p>
+  <p>Stand <span id="updated">—</span> · Plan von Gruppe 22</p>
 </footer>
 
-<script src="app.js?v=1"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

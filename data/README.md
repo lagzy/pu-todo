@@ -45,8 +45,7 @@ jedem Aufruf neu (`cache: no-cache`) — kein Cache-Problem.
   "kind": "event",
   "note": "Ein Satz, der am Tag selbst hilft.",
   "prep": [
-    { "who": "edward", "text": "Kuchen einkaufen (Migros), ein Kassenbon",
-      "note": "Plan 24.60 CHF, 48 Stück.", "due": "Mo 16.11. Abend" }
+    { "who": "edward", "text": "Kuchen einkaufen (Migros)" }
   ],
   "blocks": [
     {
@@ -69,7 +68,8 @@ jedem Aufruf neu (`cache: no-cache`) — kein Cache-Problem.
 | `title` | ja | kurz, steht gross im Hero („Kuchenverkauf“) |
 | `kind` | ja | `lesson` (normale Arbeit), `event` (Termin wie Kuchenverkauf), `deadline` (Abgabe, Präsentation) |
 | `note` | empfohlen | ein Satz Kontext: Break-even, Frist, warum heute |
-| `prep` | nein | was **vor** dem Tag fertig sein muss; erscheint als „Vorher erledigen“ |
+| `prep` | nein | was **vor** dem Tag fertig sein muss; erscheint als „Vorher“-Liste, nach Person gruppiert |
+| `prepLabel` | mit `prep` | Kurzform der Frist, z.B. `"bis Mo 16.11."` |
 | `blocks` | ja | `n` = 1…N in dieser Reihenfolge, `start` < `end`, innerhalb `schedule`, keine Überlappung |
 
 ### Eine Aufgabe
@@ -79,11 +79,12 @@ jedem Aufruf neu (`cache: no-cache`) — kein Cache-Problem.
 ```
 
 - `who`: **eine** `id` aus `people` → die Aufgabe steht in dieser Personenspalte.
-  **Ein Array** mit 2 oder 3 `id`s → die Aufgabe steht einmal oben im violetten
-  „Gemeinsam“-Streifen (`["vlad","dorian","edward"]` heisst „Alle drei“).
-- `text`: imperative Form, eine Zeile, **unter 120 Zeichen**. Kein Punkt am Ende
+  **Ein Array** mit 2 oder 3 `id`s → die Aufgabe steht einmal über den Spalten, mit
+  «Dorian + Edward» davor; bei allen drei ohne Namen (`["vlad","dorian","edward"]`).
+- `text`: imperative Form, eine Zeile, **unter 80 Zeichen**. Kein Punkt am Ende
   nötig, keine Höflichkeitsfloskeln. Das wird auf dem Handy in der Pause gelesen.
-- `note`: optional, warum oder wie — erscheint kleiner darunter.
+- `note`: optional — aber sparsam. Die Seite ist absichtlich textarm: eine Aufgabe,
+  ein Satz. Ausnahmen sind Beträge und Anforderungs-IDs (`A-18`), die sonst fehlen.
 
 ## Regeln für Agenten (und Menschen)
 

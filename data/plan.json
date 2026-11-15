@@ -1,304 +1,144 @@
 {
   "schema": "pu-todo/1",
   "updated": "2026-11-15",
-  "note": "Aufgaben aus STATUS.md, 04_Pendenzenliste.docx (v5) und Kuchenverkauf_17.11_Plan.docx. Zuteilung nach Rolle; vom Team bestaetigen lassen.",
-  "schedule": {
-    "weekday": "Dienstag",
-    "start": "13:30",
-    "end": "16:10",
-    "label": "PU · 13:30–16:10"
-  },
+  "note": "Aufgaben aus STATUS.md, Pendenzenliste v5 und Kuchenverkauf-Plan; Zuteilung nach Rolle.",
+  "schedule": { "weekday": "Dienstag", "start": "13:30", "end": "16:10", "label": "PU 13:30–16:10" },
   "people": [
-    {
-      "id": "vlad",
-      "name": "Vlad",
-      "full": "Vladyslav Khomenko",
-      "role": "Firmware · Webseite · Dossier"
-    },
-    {
-      "id": "dorian",
-      "name": "Dorian",
-      "full": "Dorian Sonderer",
-      "role": "Ton · Spielmodi · Anleitung"
-    },
-    {
-      "id": "edward",
-      "name": "Edward",
-      "full": "Edward Mueller",
-      "role": "Hardware · CAD · Abrechnung"
-    }
+    { "id": "vlad", "name": "Vlad", "full": "Vladyslav Khomenko", "role": "Firmware · Webseite · Dossier" },
+    { "id": "dorian", "name": "Dorian", "full": "Dorian Sonderer", "role": "Ton · Spielmodi · Anleitung" },
+    { "id": "edward", "name": "Edward", "full": "Edward Mueller", "role": "Hardware · CAD · Abrechnung" }
   ],
   "days": [
     {
       "date": "2026-11-17",
       "title": "Kuchenverkauf",
       "kind": "event",
-      "note": "Verkauf in den Pausen. 2.00 CHF pro Stück, Break-even 13 Stück. Ohne schriftliche Bewilligung wird nicht verkauft.",
+      "note": "2.00 CHF pro Stück · Break-even 13 Stück",
+      "prepLabel": "bis Mo 16.11.",
       "prep": [
-        {
-          "who": "vlad",
-          "text": "Bewilligung der Schule schriftlich holen",
-          "note": "Ohne Papier kein Verkauf.",
-          "due": "Mo 16.11."
-        },
-        {
-          "who": "vlad",
-          "text": "Preisschild und Kassabogen drucken (A4)",
-          "due": "Mo 16.11."
-        },
-        {
-          "who": "vlad",
-          "text": "20 CHF Wechselgeld in Münzen einstecken",
-          "note": "Sonst geht beim ersten 10er nichts mehr.",
-          "due": "Di früh"
-        },
-        {
-          "who": "edward",
-          "text": "Kuchen einkaufen (Migros), ein Kassenbon",
-          "note": "Plan 24.60 CHF, 48 Stück.",
-          "due": "Mo 16.11. Abend"
-        },
-        {
-          "who": "dorian",
-          "text": "Teller, Servietten, Folie, Kuchenschneider besorgen",
-          "due": "Mo 16.11."
-        }
+        { "who": "vlad", "text": "Bewilligung holen" },
+        { "who": "vlad", "text": "Schild und Kassabogen drucken" },
+        { "who": "vlad", "text": "20 CHF Wechselgeld" },
+        { "who": "edward", "text": "Kuchen einkaufen (Migros)" },
+        { "who": "dorian", "text": "Teller, Servietten, Folie, Messer" }
       ],
       "blocks": [
         {
           "n": 1,
           "start": "13:30",
           "end": "14:30",
-          "title": "Stand aufbauen, 1. Pause verkaufen",
+          "title": "Stand aufbauen",
           "tasks": [
-            {
-              "who": ["dorian", "edward"],
-              "text": "1. Pause: verkaufen — einer nimmt Geld, einer gibt Kuchen"
-            },
-            {
-              "who": "edward",
-              "text": "Tisch aufstellen, Decke drüber, Kuchen mitbringen"
-            },
-            {
-              "who": "dorian",
-              "text": "Preisschild hinstellen, Sorten mit wasserfestem Stift eintragen"
-            },
-            {
-              "who": "dorian",
-              "text": "Kuchen erst schneiden, wenn der erste Kunde da ist",
-              "note": "Brett, sauberes Messer, 50-g-Stücke."
-            },
-            {
-              "who": "vlad",
-              "text": "Bewilligung dabeihaben und zeigen, Tischplatz abklären"
-            },
-            {
-              "who": "vlad",
-              "text": "Stand von weit weg fotografieren — keine Gesichter",
-              "note": "Datenschutz, Foto gehört in Kapitel 2.3."
-            }
+            { "who": ["dorian", "edward"], "text": "1. Pause: verkaufen" },
+            { "who": "edward", "text": "Tisch aufstellen, Kuchen mitbringen" },
+            { "who": "dorian", "text": "Preisschild aufstellen, Sorten eintragen" },
+            { "who": "dorian", "text": "Erst beim ersten Kunden schneiden" },
+            { "who": "vlad", "text": "Bewilligung dabeihaben" },
+            { "who": "vlad", "text": "Stand fotografieren, keine Gesichter" }
           ]
         },
         {
           "n": 2,
           "start": "14:30",
           "end": "15:30",
-          "title": "Hauptverkauf (grosse Pause), danach zählen",
+          "title": "Hauptverkauf",
           "tasks": [
-            {
-              "who": ["vlad", "dorian", "edward"],
-              "text": "Grosse Pause: alle drei verkaufen — wer nicht verkauft, räumt nach"
-            },
-            {
-              "who": "vlad",
-              "text": "Nach der Pause: Kasse zu zweit zählen, Betrag auf den Kassabogen",
-              "note": "Nicht schätzen. Zwei Leute, eine Zahl."
-            },
-            {
-              "who": "dorian",
-              "text": "Erklären, was wir bauen — das verkauft mehr als der Preis"
-            },
-            {
-              "who": "edward",
-              "text": "Reststücke abdecken und kühl stellen"
-            }
+            { "who": ["vlad", "dorian", "edward"], "text": "Grosse Pause: alle drei verkaufen" },
+            { "who": "vlad", "text": "Kasse zu zweit zählen" },
+            { "who": "dorian", "text": "Erklären, was wir bauen" },
+            { "who": "edward", "text": "Reststücke abdecken, kühl stellen" }
           ]
         },
         {
           "n": 3,
           "start": "15:30",
           "end": "16:10",
-          "title": "Kasse, Belege, Abrechnung",
+          "title": "Kasse und Belege",
           "tasks": [
-            {
-              "who": "vlad",
-              "text": "Kasse ein drittes Mal zählen, Foto von Geld und leerem Tisch"
-            },
-            {
-              "who": "edward",
-              "text": "Kassenbon und Belege sammeln, Betrag in 05_Abrechnung.xlsx (E-02)"
-            },
-            {
-              "who": "dorian",
-              "text": "Reststücke der Klasse anbieten, Stand abbauen"
-            }
+            { "who": "vlad", "text": "Kasse zählen, Foto von Geld und Tisch" },
+            { "who": "edward", "text": "Belege sammeln, Abrechnung E-02" },
+            { "who": "dorian", "text": "Reste der Klasse anbieten, abbauen" }
           ]
         }
       ]
     },
     {
       "date": "2026-11-24",
-      "title": "Firmware, 1. Testspiel, Doku",
+      "title": "Firmware und Testspiel",
       "kind": "lesson",
-      "note": "Der grosse Tag: Abstand → Piepton muss laufen, sonst hängen Testspiele, Trailer und Live-Demo.",
+      "prepLabel": "vor Dienstag",
       "prep": [
-        {
-          "who": "vlad",
-          "text": "Firmware bis Dienstag so weit, dass sie auf beide Test-ESP32 passt",
-          "due": "vor Di"
-        },
-        {
-          "who": "edward",
-          "text": "Gehäuse v2 fertig gedruckt mitbringen",
-          "due": "vor Di"
-        }
+        { "who": "vlad", "text": "Firmware auf beide Test-ESP32" },
+        { "who": "edward", "text": "Gehäuse v2 gedruckt mitbringen" }
       ],
       "blocks": [
         {
           "n": 1,
           "start": "13:30",
           "end": "14:30",
-          "title": "Firmware und Gehäuse zusammenbringen",
+          "title": "Firmware trifft Gehäuse",
           "tasks": [
-            {
-              "who": "vlad",
-              "text": "Abstand → Piepton mit Zonen nah/mittel/weit",
-              "note": "Dazu der 3-Sekunden-Fang aus den Regeln."
-            },
-            {
-              "who": "vlad",
-              "text": "Firmware auf beide Test-ESP32 flashen und prüfen"
-            },
-            {
-              "who": "edward",
-              "text": "Gehäuse v2: Deckel, Taster, 0.4 mm Luft testen",
-              "note": "Fotos vom Druck für Kapitel 2.3."
-            },
-            {
-              "who": "dorian",
-              "text": "Töne für die vier Modi mit Vlad festlegen",
-              "note": "Was piept wann — kurze Liste, keine Datei."
-            }
+            { "who": "vlad", "text": "Abstand → Piepton in drei Zonen" },
+            { "who": "vlad", "text": "Dazu der 3-Sekunden-Fang" },
+            { "who": "edward", "text": "Gehäuse v2: Deckel, Taster, Luft" },
+            { "who": "dorian", "text": "Töne für die vier Modi festlegen" }
           ]
         },
         {
           "n": 2,
           "start": "14:30",
           "end": "15:30",
-          "title": "1. Testspiel draussen",
+          "title": "Testspiel draussen",
           "tasks": [
-            {
-              "who": ["vlad", "dorian", "edward"],
-              "text": "Testspiel mit 2–4 Geräten und Rückmeldung aufschreiben (A-18)"
-            },
-            {
-              "who": "dorian",
-              "text": "Regeln erklären und Rückmeldungen notieren",
-              "note": "Schriftlich, für die Auswertung 2.4."
-            },
-            {
-              "who": "vlad",
-              "text": "Fehlerliste führen: was geht nicht, was fehlt"
-            },
-            {
-              "who": "edward",
-              "text": "Geräte tragen, Gehäuse im Einsatz prüfen (A-13)"
-            }
+            { "who": ["vlad", "dorian", "edward"], "text": "Testspiel mit 2–4 Geräten (A-18)" },
+            { "who": "dorian", "text": "Rückmeldungen aufschreiben" },
+            { "who": "vlad", "text": "Fehlerliste führen" },
+            { "who": "edward", "text": "Gehäuse im Einsatz prüfen (A-13)" }
           ]
         },
         {
           "n": 3,
           "start": "15:30",
           "end": "16:10",
-          "title": "Dossier, Abrechnung, Anleitung",
+          "title": "Dossier und Abrechnung",
           "tasks": [
-            {
-              "who": "vlad",
-              "text": "Kapitel 2.3 mit Fotos, KI-Deklaration nachführen"
-            },
-            {
-              "who": "edward",
-              "text": "Abrechnung mit echten Belegen: Kuchenbon, AliExpress-Betrag und Liefertermin",
-              "note": "Ohne Betrag bleibt A-17 offen."
-            },
-            {
-              "who": "dorian",
-              "text": "Auswertung und Fazit (2.4) entwerfen, A5-Anleitung prüfen"
-            }
+            { "who": "vlad", "text": "Kapitel 2.3 mit Fotos" },
+            { "who": "edward", "text": "Abrechnung: Kuchenbon, AliExpress-Betrag" },
+            { "who": "dorian", "text": "Fazit für 2.4, A5-Anleitung prüfen" }
           ]
         }
       ]
     },
     {
       "date": "2026-12-01",
-      "title": "Abgabe der zwei Mappen",
+      "title": "Abgabe",
       "kind": "deadline",
-      "note": "Abgabe bei Unterrichtsbeginn, zwei spiralgebundene Dokumentationsmappen. Danach: Trailer mit echtem Filmmaterial und Präsentation vorbereiten.",
-      "prep": [
-        {
-          "who": ["vlad", "dorian", "edward"],
-          "text": "Mappen am Mo 30.11. drucken und binden lassen",
-          "due": "Mo 30.11."
-        }
-      ],
+      "note": "Zwei Mappen, Unterrichtsbeginn",
+      "prepLabel": "bis Mo 30.11.",
+      "prep": [{ "who": ["vlad", "dorian", "edward"], "text": "Mappen drucken und binden" }],
       "blocks": [
         {
           "n": 1,
           "start": "13:30",
           "end": "14:30",
-          "title": "Abgabe",
+          "title": "Mappen abgeben",
           "tasks": [
-            {
-              "who": ["vlad", "dorian", "edward"],
-              "text": "Beide Mappen bei Frau Stalder abgeben"
-            },
-            {
-              "who": "vlad",
-              "text": "Vorher prüfen: Inhaltsverzeichnis, Seitenzahlen, Kopf- und Fusszeile"
-            },
-            {
-              "who": "edward",
-              "text": "Anhang: Belege, Kassabogen, CAD-Export und Renderings"
-            },
-            {
-              "who": "dorian",
-              "text": "Anhang: A5-Anleitung, Fotos der Testspiele"
-            }
+            { "who": ["vlad", "dorian", "edward"], "text": "Beide Mappen abgeben" },
+            { "who": "vlad", "text": "Inhaltsverzeichnis, Seitenzahlen" },
+            { "who": "edward", "text": "Anhang: Belege, Kassabogen, CAD" },
+            { "who": "dorian", "text": "Anhang: A5-Anleitung, Testspiel-Fotos" }
           ]
         },
         {
           "n": 2,
           "start": "14:30",
           "end": "15:30",
-          "title": "Trailer mit echtem Filmmaterial",
+          "title": "Trailer mit Filmmaterial",
           "tasks": [
-            {
-              "who": ["vlad", "dorian", "edward"],
-              "text": "Filmmaterial drehen — Gehäuse ist jetzt da"
-            },
-            {
-              "who": "vlad",
-              "text": "Trailer neu rendern, Länge 60–90 s halten",
-              "note": "Grafik-Fassung 86 s, 05_Demo_Video/hyper/trailer."
-            },
-            {
-              "who": "edward",
-              "text": "Gerät vorführen lassen: Nahaufnahme vom Piepton"
-            },
-            {
-              "who": "dorian",
-              "text": "Ton im Video prüfen: Sprache verständlich, Piepen nicht zu laut"
-            }
+            { "who": ["vlad", "dorian", "edward"], "text": "Filmmaterial drehen" },
+            { "who": "vlad", "text": "Trailer neu rendern, 60–90 s" },
+            { "who": "edward", "text": "Nahaufnahme vom Piepton" },
+            { "who": "dorian", "text": "Ton im Video prüfen" }
           ]
         },
         {
@@ -307,19 +147,9 @@
           "end": "16:10",
           "title": "Präsentation aufteilen",
           "tasks": [
-            {
-              "who": "vlad",
-              "text": "Ablauf und Zeitplan der Präsentation schreiben",
-              "note": "15.12. zählt als MINT-Note."
-            },
-            {
-              "who": "edward",
-              "text": "Geräte und Muster für die Vorführung bereitlegen"
-            },
-            {
-              "who": "dorian",
-              "text": "Einstieg und Demo-Spiel-Regeln übernehmen"
-            }
+            { "who": "vlad", "text": "Ablauf und Zeit schreiben" },
+            { "who": "edward", "text": "Geräte für die Vorführung" },
+            { "who": "dorian", "text": "Einstieg und Demo-Regeln" }
           ]
         }
       ]
@@ -328,94 +158,57 @@
       "date": "2026-12-08",
       "title": "PPT bauen",
       "kind": "lesson",
-      "note": "Der Entwurf mit 12 Folien steht (06_Praesentation/). Heute bekommt er Inhalte, Bilder und Sprechkarten.",
       "blocks": [
         {
           "n": 1,
           "start": "13:30",
           "end": "14:30",
-          "title": "Inhalte auf die Folien",
+          "title": "Inhalte",
           "tasks": [
-            {
-              "who": "vlad",
-              "text": "Folien: Projektidee, Firmware, Dossier"
-            },
-            {
-              "who": "edward",
-              "text": "Folien: Gehäuse, Kosten, Abrechnung"
-            },
-            {
-              "who": "dorian",
-              "text": "Folien: Regeln, vier Modi, Demo"
-            }
+            { "who": "vlad", "text": "Projektidee, Firmware, Dossier" },
+            { "who": "edward", "text": "Gehäuse, Kosten, Abrechnung" },
+            { "who": "dorian", "text": "Regeln, vier Modi, Demo" }
           ]
         },
         {
           "n": 2,
           "start": "14:30",
           "end": "15:30",
-          "title": "Bauen und Bilder",
+          "title": "Bauen",
           "tasks": [
-            {
-              "who": "vlad",
-              "text": "Folienliste in 06_Praesentation/_src/build.py ergänzen und neu bauen"
-            },
-            {
-              "who": "vlad",
-              "text": "Bilder aus Dossier/bilder/ und Spielregeln/diagrams/png/ einsetzen"
-            },
-            {
-              "who": "edward",
-              "text": "CAD-Renderings einsetzen (cad_weiss.png)"
-            },
-            {
-              "who": "dorian",
-              "text": "Sprechkarten schreiben — die fehlen noch"
-            }
+            { "who": "vlad", "text": "Folienliste in build.py, neu bauen" },
+            { "who": "vlad", "text": "Bilder einsetzen" },
+            { "who": "edward", "text": "CAD-Renderings einsetzen" },
+            { "who": "dorian", "text": "Sprechkarten schreiben" }
           ]
         },
         {
           "n": 3,
           "start": "15:30",
           "end": "16:10",
-          "title": "Durchlauf mit Zeitmessung",
+          "title": "Durchlauf",
           "tasks": [
-            {
-              "who": ["vlad", "dorian", "edward"],
-              "text": "Einmal ganz durch, Zeit stoppen, kürzen was zu lang ist"
-            },
-            {
-              "who": "vlad",
-              "text": "PDF-Vorschau prüfen: keine Folie überfüllt"
-            }
+            { "who": ["vlad", "dorian", "edward"], "text": "Ganz durch, Zeit stoppen" },
+            { "who": "vlad", "text": "PDF-Vorschau prüfen" }
           ]
         }
       ]
     },
     {
       "date": "2026-12-15",
-      "title": "Präsentation (MINT-Note)",
+      "title": "Präsentation",
       "kind": "deadline",
-      "note": "Die Präsentation zählt als MINT-Note. Alles muss am Vorabend getestet sein.",
+      "note": "zählt als MINT-Note",
       "blocks": [
         {
           "n": 1,
           "start": "13:30",
           "end": "14:30",
-          "title": "Aufbau und Technik",
+          "title": "Aufbau",
           "tasks": [
-            {
-              "who": "vlad",
-              "text": "PPT auf den Schulrechner, Video und Ton testen"
-            },
-            {
-              "who": "edward",
-              "text": "Geräte aufbauen, Akkus laden, Ersatz mitnehmen"
-            },
-            {
-              "who": "dorian",
-              "text": "Sprechkarten und A5-Muster bereitlegen"
-            }
+            { "who": "vlad", "text": "PPT und Video testen" },
+            { "who": "edward", "text": "Geräte aufbauen, Akkus laden" },
+            { "who": "dorian", "text": "Karten und Muster bereitlegen" }
           ]
         },
         {
@@ -424,10 +217,7 @@
           "end": "15:30",
           "title": "Präsentation halten",
           "tasks": [
-            {
-              "who": ["vlad", "dorian", "edward"],
-              "text": "Präsentation vor der Klasse — jeder seinen Teil"
-            }
+            { "who": ["vlad", "dorian", "edward"], "text": "Vor der Klasse, jeder seinen Teil" }
           ]
         },
         {
@@ -436,22 +226,9 @@
           "end": "16:10",
           "title": "Abschluss",
           "tasks": [
-            {
-              "who": ["vlad", "dorian", "edward"],
-              "text": "Rückmeldung der Lehrperson notieren"
-            },
-            {
-              "who": "vlad",
-              "text": "Rückmeldung für den letzten Wochenrapport aufschreiben"
-            },
-            {
-              "who": "edward",
-              "text": "Geräte abbauen, Teile zurückräumen"
-            },
-            {
-              "who": "dorian",
-              "text": "Restliche Karten und Muster abgeben"
-            }
+            { "who": ["vlad", "dorian", "edward"], "text": "Rückmeldung notieren" },
+            { "who": "edward", "text": "Geräte abbauen" },
+            { "who": "dorian", "text": "Karten abgeben" }
           ]
         }
       ]

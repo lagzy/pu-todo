@@ -46,8 +46,8 @@ def check_task(where: str, task: dict, ids: set[str]) -> None:
     text = task.get("text")
     if not isinstance(text, str) or not text.strip():
         fail(f"{where}: Aufgabe ohne «text»")
-    elif len(text) > 120:
-        warn(f"{where}: Aufgabe ist lang ({len(text)} Zeichen) — {text[:40]}…")
+    elif len(text) > 80:
+        warn(f"{where}: Text zu lang ({len(text)} Zeichen, max 80) — {text[:40]}…")
 
 
 def main() -> None:
@@ -118,13 +118,13 @@ def main() -> None:
         if day.get("kind") not in ("lesson", "event", "deadline"):
             fail(f"{where}: «kind» muss lesson, event oder deadline sein")
         if not day.get("note"):
-            warn(f"{where}: keine «note» — ein Satz hilft am Tag selbst")
+            pass  # Notizen sind freiwillig und bleiben kurz
 
-        for i, p in enumerate(day.get("prep") or [], 1):
-            pw = f"{where} prep{i}"
-            check_task(pw, p, ids)
-            if not p.get("due"):
-                warn(f"{pw}: kein «due» (z.B. «Mo 16.11.»)")
+        prep = day.get("prep") or []
+        for i, p in enumerate(prep, 1):
+            check_task(f"{where} prep{i}", p, ids)
+        if prep and not day.get("prepLabel"):
+            warn(f"{where}: «prepLabel» fehlt (z.B. «bis Mo 16.11.»)")
 
         blocks = day.get("blocks") or []
         if not blocks:

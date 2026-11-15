@@ -11,20 +11,21 @@ nur `index.html`, `style.css`, `app.js` und eine JSON-Datei.
 
 Die Seite liest `data/plan.json` und vergleicht mit der Uhr des Geräts:
 
-- **Dienstag, 13:30–16:10** → die Lektion, die gerade läuft, steht gross oben
-  („JETZT · Lektion 2 läuft · noch 45 min“). Vor der ersten Lektion: „beginnt in
-  20 min“. In einer Pause: „Lektion 3 um 15:30 · in 4 min“. Nach 16:10 springt die
-  Ansicht automatisch auf den nächsten Dienstag.
-- **Jeder andere Tag** → der nächste PU-Tag mit Countdown („Di., 17.11. · in 2 Tagen“).
+- **Dienstag, 13:30–16:10** → die Lektion, die gerade läuft, steht oben („JETZT ·
+  Lektion 2 · noch 45 min“). Vor der ersten Lektion: „gleich · beginnt in 20 min“,
+  in einer Pause: „pause · weiter um 15:30“. Nach 16:10 springt die Ansicht auf den
+  nächsten Dienstag.
+- **Jeder andere Tag** → der nächste PU mit Countdown („in 2 Tagen“), die Lektionen
+  als Reiter 13:30 / 14:30 / 15:30, und die Vorher-Liste steht offen.
 - **Termintage** (Kuchenverkauf, Abgabe, Präsentation) zeigen ihre eigenen Aufgaben.
   Am 17.11. steht also nicht „Firmware“, sondern Kuchen schneiden, Kasse zählen,
   Belege sammeln.
-- Lektion antippen wechselt die Ansicht, unten lassen sich die anderen Diensttage
+- Reiter antippen wechselt die Lektion, unten lassen sich die anderen Diensttage
   öffnen. Ohne Antippen aktualisiert sich die Seite alle 20 Sekunden selbst.
 
-Unter „Vorher erledigen“ stehen die Sachen, die **vor** dem Tag fertig sein müssen
-(z.B. Kuchen einkaufen am Montagabend), unter „Danach an diesem Tag“ die restlichen
-Lektionen.
+Alles steht in einer schmalen Spalte: Titel, eine Zeile Kontext, die drei Reiter,
+dann die Aufgaben — eine Zeile pro Punkt, keine Untertitel. „Vorher“ (was bis
+Montagabend fertig sein muss) ist am Tag selbst zugeklappt, sonst offen.
 
 ## Dateien
 
