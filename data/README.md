@@ -17,7 +17,7 @@ jedem Aufruf neu (`cache: no-cache`) — kein Cache-Problem.
 
 ```json
 {
-  "schema": "pu-todo/1",
+  "schema": "pu-todo/2",
   "updated": "2026-11-15",
   "note": "eine Zeile, woher die Aufgaben stammen",
   "schedule": { "weekday": "Dienstag", "start": "13:30", "end": "16:10", "label": "…" },
@@ -45,7 +45,7 @@ jedem Aufruf neu (`cache: no-cache`) — kein Cache-Problem.
   "kind": "event",
   "note": "Ein Satz, der am Tag selbst hilft.",
   "prep": [
-    { "who": "edward", "text": "Kuchen einkaufen (Migros)" }
+    { "who": "edward", "title": "Kuchen einkaufen", "text": "Migros, drei Stück, ein Bon" }
   ],
   "blocks": [
     {
@@ -54,8 +54,8 @@ jedem Aufruf neu (`cache: no-cache`) — kein Cache-Problem.
       "end": "14:30",
       "title": "Stand aufbauen, 1. Pause verkaufen",
       "tasks": [
-        { "who": ["dorian", "edward"], "text": "1. Pause: verkaufen — einer nimmt Geld, einer gibt Kuchen" },
-        { "who": "edward", "text": "Tisch aufstellen", "note": "Decke drüber, Kuchen mitbringen" }
+        { "who": ["dorian", "edward"], "title": "1. Pause verkaufen", "text": "Einer nimmt Geld, einer gibt Kuchen" },
+        { "who": "edward", "title": "Tisch aufstellen", "text": "Decke drüber, Kuchen mitbringen" }
       ]
     }
   ]
@@ -75,16 +75,25 @@ jedem Aufruf neu (`cache: no-cache`) — kein Cache-Problem.
 ### Eine Aufgabe
 
 ```json
-{ "who": "vlad", "text": "Kasse zu zweit zählen", "note": "Nicht schätzen." }
+{
+  "who": "vlad",
+  "title": "Weiter an der Firmware",
+  "text": "Abstand zu Ton in drei Zonen (nah, mittel, weit)",
+  "done": true
+}
 ```
 
 - `who`: **eine** `id` aus `people` → die Aufgabe steht in dieser Personenspalte.
   **Ein Array** mit 2 oder 3 `id`s → die Aufgabe steht einmal über den Spalten, mit
   «Dorian + Edward» davor; bei allen drei ohne Namen (`["vlad","dorian","edward"]`).
-- `text`: imperative Form, eine Zeile, **unter 80 Zeichen**. Kein Punkt am Ende
-  nötig, keine Höflichkeitsfloskeln. Das wird auf dem Handy in der Pause gelesen.
-- `note`: optional — aber sparsam. Die Seite ist absichtlich textarm: eine Aufgabe,
-  ein Satz. Ausnahmen sind Beträge und Anforderungs-IDs (`A-18`), die sonst fehlen.
+- `title`: **Pflicht**, max 44 Zeichen, imperativ, sagt **was** zu tun ist
+  («Weiter an der Firmware», «Kuchen kaufen»). Steht fett als erste Zeile.
+- `text`: **Pflicht**, max 90 Zeichen, die konkreten Punkte dazu, keine Floskeln.
+  Steht klein darunter. Das wird auf dem Handy in der Pause gelesen.
+- `done`: freiwillig, `true` oder `false`. `true` heisst: erledigt, mit Beleg
+  (Datei, Commit, Discord-Meldung). Ohne `done` gilt die Aufgabe als offen.
+  Der Haken in der Seite zeigt genau diesen Wert; Antippen merkt nur lokal im
+  Browser und ändert den Plan nicht.
 
 ## Regeln für Agenten (und Menschen)
 
@@ -108,3 +117,9 @@ jedem Aufruf neu (`cache: no-cache`) — kein Cache-Problem.
    falsche Wochentage, überlappende Blöcke, unbekannte Personen und leere Texte.
 8. **Kein Build.** Keine `.min.js`, keine Bibliotheken, keine externen Schriften —
    die Seite muss offline und in fünf Jahren noch aufgehen.
+9. **Gemeldete Fortschritte abhaken, sofort.** Meldet jemand im Discord, dass eine
+   Aufgabe fertig ist, bekommt genau diese Aufgabe `"done": true`, dann `check_plan.py`
+   und push. Nicht sammeln, nicht auf den Dienstag warten. Was nicht gemeldet und
+   nicht in einer Projektdatei belegt ist, bleibt offen.
+10. **Jede Änderung geht live.** `git add -A && git commit -m "…" && git push` gehört
+    zum Abhaken dazu, sonst steht im Unterricht noch die alte Fassung.

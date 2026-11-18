@@ -24,8 +24,9 @@ Die Seite liest `data/plan.json` und vergleicht mit der Uhr des Geräts:
   öffnen. Ohne Antippen aktualisiert sich die Seite alle 20 Sekunden selbst.
 
 Alles steht in einer schmalen Spalte: Titel, eine Zeile Kontext, die drei Reiter,
-dann die Aufgaben — eine Zeile pro Punkt, keine Untertitel. „Vorher“ (was bis
-Montagabend fertig sein muss) ist am Tag selbst zugeklappt, sonst offen.
+dann die Aufgaben. Jede Aufgabe hat einen Titel (was tun) und einen Satz mit den
+konkreten Punkten, links ein Haken für den Stand. „Vorher“ (was bis Montagabend
+fertig sein muss) ist am Tag selbst zugeklappt, sonst offen.
 
 ## Dateien
 
