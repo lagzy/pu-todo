@@ -43,11 +43,18 @@ def check_task(where: str, task: dict, ids: set[str]) -> None:
             fail(f"{where}: unbekannte Person «{w}» (bekannt: {', '.join(sorted(ids))})")
     if len(set(who_list)) != len(who_list):
         fail(f"{where}: «who» nennt eine Person doppelt: {who_list}")
+    title = task.get("title")
+    if not isinstance(title, str) or not title.strip():
+        fail(f"{where}: Aufgabe ohne «title» (was tun, kurz, z.B. «Weiter an der Firmware»)")
+    elif len(title) > 44:
+        warn(f"{where}: Titel zu lang ({len(title)} Zeichen, max 44) — {title[:30]}…")
     text = task.get("text")
     if not isinstance(text, str) or not text.strip():
         fail(f"{where}: Aufgabe ohne «text»")
-    elif len(text) > 80:
-        warn(f"{where}: Text zu lang ({len(text)} Zeichen, max 80) — {text[:40]}…")
+    elif len(text) > 90:
+        warn(f"{where}: Text zu lang ({len(text)} Zeichen, max 90) — {text[:40]}…")
+    if "done" in task and not isinstance(task["done"], bool):
+        fail(f"{where}: «done» muss true oder false sein, ist {task['done']!r}")
 
 
 def main() -> None:
@@ -63,8 +70,8 @@ def main() -> None:
         print("FAILURES: 1")
         return
 
-    if plan.get("schema") != "pu-todo/1":
-        fail(f"schema ist «{plan.get('schema')}», erwartet «pu-todo/1»")
+    if plan.get("schema") != "pu-todo/2":
+        fail(f"schema ist «{plan.get('schema')}», erwartet «pu-todo/2»")
 
     people = plan.get("people") or []
     ids = {p.get("id") for p in people if p.get("id")}
@@ -162,10 +169,12 @@ def main() -> None:
 
     print(f"Plan: {len(days)} Diensttage, {len(people)} Personen")
     for day in days:
-        n_tasks = sum(len(b.get("tasks") or []) for b in day.get("blocks") or [])
+        tasks = [t for b in day.get("blocks") or [] for t in (b.get("tasks") or [])]
+        n_tasks = len(tasks)
+        n_done = sum(1 for t in tasks if t.get("done") is True)
         n_prep = len(day.get("prep") or [])
         sp = ", ".join(f"{b.get('n')}:{b.get('start')}" for b in day.get("blocks") or [])
-        print(f"  {day.get('date')}  {day.get('title'):<34} {n_tasks:>2} Aufgaben  "
+        print(f"  {day.get('date')}  {day.get('title'):<34} {n_done:>2}/{n_tasks:<2} erledigt  "
               f"{n_prep} vorher  [{sp}]")
 
     for w in warns:

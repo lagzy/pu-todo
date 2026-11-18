@@ -1,4 +1,4 @@
-/* PU-Plan — was jetzt zu tun ist. Datenquelle: data/plan.json */
+/* PU-Plan, was jetzt zu tun ist. Datenquelle: data/plan.json (Format pu-todo/2) */
 
 const app = document.querySelector("#app");
 let PLAN = null;
@@ -50,6 +50,28 @@ const namesOf = (who) => {
 
 const whoList = (t) => (Array.isArray(t.who) ? t.who : [t.who]);
 
+/* ---------- Haken: Plan und lokal ---------- */
+
+const LSK = "puplan.ticks";
+const ticks = () => {
+  try {
+    return JSON.parse(localStorage.getItem(LSK) || "{}");
+  } catch (e) {
+    return {};
+  }
+};
+const setTick = (k, v) => {
+  const t = ticks();
+  if (v) t[k] = 1;
+  else delete t[k];
+  try {
+    localStorage.setItem(LSK, JSON.stringify(t));
+  } catch (e) {}
+};
+const keyOf = (date, blockN, i) => `${date}|${blockN}|${i}`;
+
+const nDone = (list) => list.filter((t) => t.done === true).length;
+
 /* ---------- Tag und Lektion bestimmen ---------- */
 
 function blockOfDay(day, n) {
@@ -92,36 +114,60 @@ function status(day, st) {
   return { tag: dayAgo(dayDiff(day.date)), cls: "next", line: "" };
 }
 
-/* ---------- Bausteine ---------- */
+/* ---------- eine Aufgabe: Titel, ein Satz, Haken ---------- */
 
-const taskLine = (t) => `<li>${esc(t.text)}</li>`;
+function taskHTML(day, blockN, i, t, names) {
+  const key = keyOf(day.date, blockN, i);
+  const inPlan = t.done === true;
+  const local = !inPlan && !!ticks()[key];
+  const on = inPlan || local;
+  const tip = inPlan ? "im Plan erledigt" : "antippen: nur in diesem Browser gemerkt";
+  return `<li class="task${on ? " on" : ""}${inPlan ? " plan" : ""}${local ? " loc" : ""}">
+    <label class="tk" title="${tip}">
+      <input type="checkbox" data-key="${esc(key)}" data-plan="${inPlan ? "1" : "0"}"${on ? " checked" : ""}${inPlan ? " disabled" : ""}>
+      <span class="bx" aria-hidden="true"></span>
+      <span class="bd">
+        ${names ? `<span class="who-l">${esc(names)}</span>` : ""}
+        <span class="ttl">${esc(t.title || t.text)}</span>
+        ${t.title && t.text ? `<span class="txt">${esc(t.text)}</span>` : ""}
+      </span>
+    </label>
+  </li>`;
+}
 
-function columnsHTML(block) {
-  const single = (block.tasks || []).filter((t) => whoList(t).length === 1);
+function columnsHTML(day, block) {
+  const all = (block.tasks || []).map((t, i) => ({ t, i }));
+  const single = all.filter(({ t }) => whoList(t).length === 1);
   const cols = PLAN.people.map((p) => {
-    const mine = single.filter((t) => whoList(t)[0] === p.id);
+    const mine = single.filter(({ t }) => whoList(t)[0] === p.id);
+    const list = mine.map(({ t }) => t);
+    const cnt = list.length ? `<span class="cnt">${nDone(list)}/${list.length}</span>` : "";
     return `<section class="col" data-person="${p.id}">
-      <h3><span class="dot"></span>${esc(p.name)}</h3>
-      ${mine.length ? `<ul>${mine.map(taskLine).join("")}</ul>` : `<p class="none">—</p>`}
+      <h3><span class="dot"></span><span class="nm">${esc(p.name)}</span>${cnt}</h3>
+      ${
+        mine.length
+          ? `<ul class="tasks">${mine.map(({ t, i }) => taskHTML(day, block.n, i, t, "")).join("")}</ul>`
+          : `<p class="none">nichts dabei</p>`
+      }
     </section>`;
   });
   return `<div class="cols">${cols.join("")}</div>`;
 }
 
-function sharedHTML(block) {
-  const shared = (block.tasks || []).filter((t) => whoList(t).length > 1);
+function sharedHTML(day, block) {
+  const all = (block.tasks || []).map((t, i) => ({ t, i }));
+  const shared = all.filter(({ t }) => whoList(t).length > 1);
   if (!shared.length) return "";
-  return `<ul class="shared">${shared
-    .map((t) => {
-      const all = whoList(t).length >= PLAN.people.length;
-      return `<li>${all ? "" : `<span>${esc(namesOf(t.who))}</span>`}${esc(t.text)}</li>`;
-    })
+  return `<ul class="tasks shared">${shared
+    .map(({ t, i }) => taskHTML(day, block.n, i, t, whoList(t).length >= PLAN.people.length ? "" : namesOf(t.who)))
     .join("")}</ul>`;
 }
 
 function heroHTML(day, st, block) {
   const s = status(day, st);
   const meta = [dateLong(day.date), day.note].filter(Boolean).join(" · ");
+  const all = (day.blocks || []).flatMap((b) => b.tasks || []);
+  const done = nDone(all);
   const chips = (day.blocks || [])
     .map((b) => {
       const live = st.mode === "live" && st.block.n === b.n && day.date === isoDate(new Date());
@@ -135,16 +181,18 @@ function heroHTML(day, st, block) {
     <p class="line"><span class="tag ${s.cls}">${esc(s.tag)}</span>${s.line ? `<span class="wt">${esc(s.line)}</span>` : ""}</p>
     <h1>${esc(day.title)}</h1>
     <p class="meta">${esc(meta)}</p>
+    <p class="prog"><span class="cnt">${done}/${all.length}</span> erledigt</p>
     <div class="chips"><span class="chiplabel">${day.date > isoDate(new Date()) ? "Am Dienstag" : "Lektionen"}</span>${chips}</div>
   </section>`;
 }
 
-function blockHTML(block, st) {
+function blockHTML(day, block, st) {
   const live = st.mode === "live" && st.block && st.block.n === block.n;
+  const all = block.tasks || [];
   return `<section class="block${live ? " live" : ""}">
-    <h2>${esc(block.title)}<span class="t">${block.start}–${block.end}</span></h2>
-    ${sharedHTML(block)}
-    ${columnsHTML(block)}
+    <h2><span class="bt">${esc(block.title)}</span><span class="cnt">${nDone(all)}/${all.length}</span><span class="t">${block.start}–${block.end}</span></h2>
+    ${sharedHTML(day, block)}
+    ${columnsHTML(day, block)}
   </section>`;
 }
 
@@ -159,21 +207,33 @@ function prepHTML(day) {
     const key = ids.join("+");
     let g = groups.find((x) => x.key === key);
     if (!g) groups.push((g = { key, pid: ids[0], who: ids.map((k) => (m[k] ? m[k].name : k)).join(" + "), items: [] }));
-    g.items.push(p.text);
+    g.items.push(p);
   }
   const rows = groups
     .map(
       (g) => `<li><span class="who" data-person="${g.pid}">${esc(g.who)}</span><span class="items">${g.items
-        .map((t) => `<span>${esc(t)}</span>`)
+        .map(
+          (p) =>
+            `<span class="it${p.done ? " on" : ""}"><b>${esc(p.title || p.text)}</b>${p.title && p.text ? `<i>${esc(p.text)}</i>` : ""}</span>`
+        )
         .join("")}</span></li>`
     )
     .join("");
-  const label = day.prepLabel ? ` — ${esc(day.prepLabel)}` : "";
+  const label = day.prepLabel ? `, ${esc(day.prepLabel)}` : "";
   const head = `Vorher${label}`;
   if (day.date > isoDate(new Date())) {
     return `<section class="prep"><h2>${head}</h2><ul>${rows}</ul></section>`;
   }
   return `<details class="prep"><summary>${head}</summary><ul>${rows}</ul></details>`;
+}
+
+function bindTicks() {
+  app.querySelectorAll("input[data-key][data-plan='0']").forEach((el) =>
+    el.addEventListener("change", () => {
+      setTick(el.dataset.key, el.checked);
+      render();
+    })
+  );
 }
 
 function render() {
@@ -183,11 +243,7 @@ function render() {
   const st = liveState(day);
   const block = sel.block ? blockOfDay(day, sel.block) : st.block;
 
-  app.innerHTML = [
-    heroHTML(day, st, block),
-    prepHTML(day),
-    block ? blockHTML(block, st) : "",
-  ].join("");
+  app.innerHTML = [heroHTML(day, st, block), prepHTML(day), block ? blockHTML(day, block, st) : ""].join("");
 
   app.querySelectorAll(".chip").forEach((chip) =>
     chip.addEventListener("click", () => {
@@ -196,6 +252,7 @@ function render() {
     })
   );
 
+  bindTicks();
   renderDays(day.date);
   document.querySelector("#updated").textContent = PLAN.updated || "—";
 }
@@ -257,7 +314,7 @@ async function boot() {
   } catch (e) {
     app.innerHTML = `<section class="hero"><h1>Plan nicht geladen</h1>
       <p class="meta">data/plan.json fehlt oder blockiert. Über file:// lädt der Browser
-      die Datei nicht — bitte über einen Server oder die GitHub-Pages-Adresse öffnen.</p></section>`;
+      die Datei nicht, bitte über einen Server oder die GitHub-Pages-Adresse öffnen.</p></section>`;
     return;
   }
   render();
