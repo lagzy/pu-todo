@@ -158,14 +158,14 @@ header.bar { position: relative; }
   position: absolute;
   top: 0;
   right: 0;
-  width: 54px;
-  height: 54px;
+  width: 96px;
+  height: 96px;
   opacity: .55;
   pointer-events: none;
   color: var(--muted);
 }
 @media (max-width: 560px) {
-  .orn { width: 36px; height: 36px; }
+  .orn { width: 56px; height: 56px; }
 }
 
 /* ---------------------------------------------------------- Kopfzeile */
@@ -173,7 +173,8 @@ header.bar {
   display: flex;
   align-items: center;
   gap: var(--s4);
-  padding: var(--s6) 0 var(--s4);
+  /* rechts Platz fuer das Zeichenmotiv (96 px), sonst liegt es auf dem Knopf */
+  padding: var(--s6) 112px var(--s4) 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -529,7 +530,7 @@ footer .label { color: var(--text-2); }
 /* ---------------------------------------------------------- Handy */
 @media (max-width: 620px) {
   body { padding: 0 var(--s4) var(--s8); }
-  header.bar { gap: var(--s3); padding: var(--s4) 0 var(--s3); }
+  header.bar { gap: var(--s3); padding: var(--s4) 64px var(--s3) 0; }
   header .pip { width: 64px; height: 64px; }
   .brand h1 { font-size: 16px; letter-spacing: 0; }
   header .clock { font-size: 22px; }
