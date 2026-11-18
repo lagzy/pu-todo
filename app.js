@@ -236,7 +236,8 @@ function setupTheme() {
   const btn = document.querySelector("#theme");
   const set = (t) => {
     document.documentElement.setAttribute("data-theme", t);
-    btn.textContent = t === "dark" ? "☀️" : "🌙";
+    btn.textContent = t === "dark" ? "HELL" : "DUNKEL";
+    btn.setAttribute("aria-label", t === "dark" ? "Auf hell umschalten" : "Auf dunkel umschalten");
     try { localStorage.setItem("puplan.theme", t); } catch (e) {}
   };
   set(document.documentElement.getAttribute("data-theme") || "light");
