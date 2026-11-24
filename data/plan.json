@@ -1,7 +1,7 @@
 {
   "schema": "pu-todo/2",
-  "updated": "2026-11-18",
-  "note": "Aufgaben aus STATUS.md, Pendenzenliste v5 und Kuchenverkauf-Plan; Zuteilung nach Rolle. Jede Aufgabe: Titel (was tun) und ein Satz mit den konkreten Punkten.",
+  "updated": "2026-11-24",
+  "note": "Aufgaben aus STATUS.md, Pendenzenliste v5 und Kuchenverkauf-Plan; Zuteilung nach Rolle. Jede Aufgabe: Titel (was tun) und ein Satz mit den konkreten Punkten. Abgabe-Woche nach den Infos von Frau Stalder, Lektion 24.11.2026.",
   "schedule": {
     "weekday": "Dienstag",
     "start": "13:30",
@@ -272,13 +272,18 @@
       "date": "2026-12-01",
       "title": "Abgabe",
       "kind": "deadline",
-      "note": "Zwei gebundene Mappen, bei Unterrichtsbeginn",
-      "prepLabel": "bis Mo 30.11.",
+      "note": "Zwei gebundene Mappen, bei Unterrichtsbeginn; danach wird an der Mappe nichts mehr gearbeitet",
+      "prepLabel": "bis Fr 12.00",
       "prep": [
         {
           "who": ["vlad", "dorian", "edward"],
           "title": "Mappen drucken und binden",
-          "text": "Zwei Stück, Spiralbindung"
+          "text": "Zwei Stück, Spiralbindung, ganze Gruppe an der Bindestation"
+        },
+        {
+          "who": ["vlad", "dorian", "edward"],
+          "title": "Digitale Fassung senden",
+          "text": "An die PU-Lehrperson, bis Freitag 12.00, besser Montag oder Dienstag"
         }
       ],
       "blocks": [
@@ -314,27 +319,32 @@
           "n": 2,
           "start": "14:30",
           "end": "15:30",
-          "title": "Trailer mit Filmmaterial",
+          "title": "Binden und Präsentation",
           "tasks": [
             {
               "who": ["vlad", "dorian", "edward"],
-              "title": "Filmmaterial drehen",
-              "text": "Nach dem Dreh-Szenario, 8 Szenen"
+              "title": "Mappen binden",
+              "text": "Ganze Gruppe an der Bindestation, nicht nur eine Person"
+            },
+            {
+              "who": ["vlad", "dorian", "edward"],
+              "title": "Kriterienblatt lesen",
+              "text": "Arbeitsblatt Kriterien Präsentation, nächste Lektion ist dafür Zeit"
             },
             {
               "who": "vlad",
-              "title": "Trailer rendern",
-              "text": "Echtes Material statt Grafik, 60 bis 90 s"
+              "title": "Ablauf und Zeit",
+              "text": "Wer spricht wann, mit Demo am Gerät"
             },
             {
               "who": "edward",
-              "title": "Nahaufnahme vom Piepton",
-              "text": "Gerät von aussen, Ton im Bild"
+              "title": "Geräte für die Demo",
+              "text": "Vier Geräte, Akkus geladen"
             },
             {
               "who": "dorian",
-              "title": "Ton im Video prüfen",
-              "text": "Pegel, kein Übersteuern"
+              "title": "Einstieg und Demo-Regeln",
+              "text": "Wie eine Runde abläuft"
             }
           ]
         },
@@ -342,22 +352,27 @@
           "n": 3,
           "start": "15:30",
           "end": "16:10",
-          "title": "Präsentation aufteilen",
+          "title": "Fragen klären",
           "tasks": [
             {
+              "who": ["vlad", "dorian", "edward"],
+              "title": "Abgabe-Check",
+              "text": "Beide Mappen komplett, Anhang A bis F, Belege dabei"
+            },
+            {
               "who": "vlad",
-              "title": "Ablauf und Zeit",
-              "text": "Wer spricht wann, mit Demo"
+              "title": "Digitale Fassung",
+              "text": "Frist Freitag 12.00, Tabelle der Lehrperson"
             },
             {
               "who": "edward",
-              "title": "Geräte für die Demo",
-              "text": "Vier Geräte, Akku geladen"
+              "title": "CAD-Export abheften",
+              "text": "Anhang E, .step oder .stl plus Renderings"
             },
             {
               "who": "dorian",
-              "title": "Einstieg und Demo-Regeln",
-              "text": "Wie eine Runde abläuft"
+              "title": "Tonpaket abrunden",
+              "text": "Block A bis D, 38 Sounds"
             }
           ]
         }
