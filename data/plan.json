@@ -345,7 +345,7 @@
               "who": "vlad",
               "title": "Sucher-Feld in die Pulse-Seite",
               "text": "Feld Sucher (01 bis 04 oder Auto) in app.html, geht mit /api/settings, dann neu flashen",
-              "done": false
+              "done": true
             }
           ]
         },
