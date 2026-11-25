@@ -1,6 +1,6 @@
 {
   "schema": "pu-todo/2",
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "note": "Aufgaben aus STATUS.md, Pendenzenliste v5 und Kuchenverkauf-Plan; Zuteilung nach Rolle. Jede Aufgabe: Titel (was tun) und ein Satz mit den konkreten Punkten. Abgabe-Woche nach den Infos von Frau Stalder, Lektion 24.11.2026.",
   "schedule": {
     "weekday": "Dienstag",
@@ -69,7 +69,11 @@
           "title": "Schule, dann Migros",
           "tasks": [
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "1. Lektion in der Schule",
               "text": "Infos von Frau Stalder",
               "done": true
@@ -101,7 +105,11 @@
           "title": "Schneiden und erste Runde",
           "tasks": [
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "Kuchen schneiden",
               "text": "5 Stücke pro Kuchen (80 g), in Servietten",
               "done": true
@@ -133,7 +141,11 @@
           "title": "Zweite Runde und Kasse",
           "tasks": [
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "Weiter verkaufen",
               "text": "Bis alle 15 Stücke weg sind",
               "done": true
@@ -222,7 +234,11 @@
           "title": "Testspiel draussen",
           "tasks": [
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "Testspiel draussen",
               "text": "2 bis 4 Geräte, ein Durchgang Klassisch (A-18)"
             },
@@ -276,12 +292,20 @@
       "prepLabel": "bis Fr 12.00",
       "prep": [
         {
-          "who": ["vlad", "dorian", "edward"],
+          "who": [
+            "vlad",
+            "dorian",
+            "edward"
+          ],
           "title": "Mappen drucken und binden",
           "text": "Zwei Stück, Spiralbindung, ganze Gruppe an der Bindestation"
         },
         {
-          "who": ["vlad", "dorian", "edward"],
+          "who": [
+            "vlad",
+            "dorian",
+            "edward"
+          ],
           "title": "Digitale Fassung senden",
           "text": "An die PU-Lehrperson, bis Freitag 12.00, besser Montag oder Dienstag"
         }
@@ -294,7 +318,11 @@
           "title": "Mappen abgeben",
           "tasks": [
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "Mappen abgeben",
               "text": "Beide Mappen, bei Unterrichtsbeginn, danach ist Schluss"
             },
@@ -312,6 +340,12 @@
               "who": "dorian",
               "title": "Anhang Ton und Spiel",
               "text": "A5-Karte, Testspiel-Fotos"
+            },
+            {
+              "who": "vlad",
+              "title": "Sucher-Feld in die Pulse-Seite",
+              "text": "Feld Sucher (01 bis 04 oder Auto) in app.html, geht mit /api/settings, dann neu flashen",
+              "done": false
             }
           ]
         },
@@ -322,12 +356,20 @@
           "title": "Binden und Präsentation",
           "tasks": [
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "Mappen binden",
               "text": "Ganze Gruppe an der Bindestation, nicht nur eine Person"
             },
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "Kriterienblatt lesen",
               "text": "Arbeitsblatt Kriterien Präsentation, nächste Lektion ist dafür Zeit"
             },
@@ -355,7 +397,11 @@
           "title": "Fragen klären",
           "tasks": [
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "Abgabe-Check",
               "text": "Beide Mappen komplett, Anhang A bis F, Belege dabei"
             },
@@ -372,7 +418,8 @@
             {
               "who": "dorian",
               "title": "Tonpaket abrunden",
-              "text": "Block A bis D, 38 Sounds"
+              "text": "ping_tick und ping_dry liefern, mode_next unter 60 ms (12 von 14 sind drin)",
+              "done": false
             }
           ]
         }
@@ -442,7 +489,11 @@
           "title": "Durchlauf",
           "tasks": [
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "Durchlauf",
               "text": "Ganz durch, Zeit stoppen"
             },
@@ -491,7 +542,11 @@
           "title": "Präsentation halten",
           "tasks": [
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "Präsentation halten",
               "text": "Jeder seinen Teil, Demo am Gerät"
             }
@@ -504,7 +559,11 @@
           "title": "Abschluss",
           "tasks": [
             {
-              "who": ["vlad", "dorian", "edward"],
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
               "title": "Rückmeldung notieren",
               "text": "Was war gut, was nicht"
             },
