@@ -1,6 +1,6 @@
 {
   "schema": "pu-todo/2",
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "note": "Aufgaben aus STATUS.md, Pendenzenliste v5 und Kuchenverkauf-Plan; Zuteilung nach Rolle. Jede Aufgabe: Titel (was tun) und ein Satz mit den konkreten Punkten. Abgabe-Woche nach den Infos von Frau Stalder, Lektion 24.11.2026.",
   "schedule": {
     "weekday": "Dienstag",
@@ -288,8 +288,8 @@
       "date": "2026-12-01",
       "title": "Abgabe",
       "kind": "deadline",
-      "note": "Zwei gebundene Mappen, bei Unterrichtsbeginn; danach wird an der Mappe nichts mehr gearbeitet",
-      "prepLabel": "bis Fr 12.00",
+      "note": "Abgabe 13:30, danach Dreh des Demo-Videos und Kriterienblatt Präsentation",
+      "prepLabel": "bis Mo 30.11.",
       "prep": [
         {
           "who": [
@@ -301,13 +301,19 @@
           "text": "Zwei Stück, Spiralbindung, ganze Gruppe an der Bindestation"
         },
         {
-          "who": [
-            "vlad",
-            "dorian",
-            "edward"
-          ],
+          "who": "vlad",
           "title": "Digitale Fassung senden",
-          "text": "An die PU-Lehrperson, bis Freitag 12.00, besser Montag oder Dienstag"
+          "text": "An die PU-Lehrperson, bis Fr 27.11. 12.00"
+        },
+        {
+          "who": "dorian",
+          "title": "Zwei Töne liefern",
+          "text": "ping_tick und ping_dry, damit Vlad sie einbauen kann"
+        },
+        {
+          "who": "edward",
+          "title": "Geräte drehbereit machen",
+          "text": "Vier Geräte, Akkus voll, Gehäuse v2 montiert"
         }
       ],
       "blocks": [
@@ -315,7 +321,7 @@
           "n": 1,
           "start": "13:30",
           "end": "14:30",
-          "title": "Mappen abgeben",
+          "title": "Abgeben und Kriterienblatt",
           "tasks": [
             {
               "who": [
@@ -324,28 +330,26 @@
                 "edward"
               ],
               "title": "Mappen abgeben",
-              "text": "Beide Mappen, bei Unterrichtsbeginn, danach ist Schluss"
+              "text": "Zwei Mappen bei Unterrichtsbeginn, Anhang A bis F dabei"
             },
             {
               "who": "vlad",
-              "title": "Inhaltsverzeichnis prüfen",
-              "text": "Seitenzahlen nur in Einleitung und Hauptteil"
+              "title": "Digitale Fassung prüfen",
+              "text": "Frist war Fr 12.00, Eintrag in der Tabelle von Frau Stalder"
             },
             {
-              "who": "edward",
-              "title": "Anhang packen",
-              "text": "Belege, Kassabogen, CAD-Export"
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
+              "title": "Kriterienblatt holen",
+              "text": "Arbeitsblatt Kriterien Präsentation, gilt für die MINT-Note am 15.12."
             },
             {
               "who": "dorian",
-              "title": "Anhang Ton und Spiel",
-              "text": "A5-Karte, Testspiel-Fotos"
-            },
-            {
-              "who": "vlad",
-              "title": "Sucher-Feld in die Pulse-Seite",
-              "text": "Feld Sucher (01 bis 04 oder Auto) in app.html, geht mit /api/settings, dann neu flashen",
-              "done": true
+              "title": "A5-Karte zeigen",
+              "text": "Eine Karte an Frau Stalder, Rückmeldung zum Druck (A-16)"
             }
           ]
         },
@@ -353,40 +357,31 @@
           "n": 2,
           "start": "14:30",
           "end": "15:30",
-          "title": "Binden und Präsentation",
+          "title": "Demo-Video drehen",
           "tasks": [
             {
-              "who": [
-                "vlad",
-                "dorian",
-                "edward"
-              ],
-              "title": "Mappen binden",
-              "text": "Ganze Gruppe an der Bindestation, nicht nur eine Person"
-            },
-            {
-              "who": [
-                "vlad",
-                "dorian",
-                "edward"
-              ],
-              "title": "Kriterienblatt lesen",
-              "text": "Arbeitsblatt Kriterien Präsentation, nächste Lektion ist dafür Zeit"
-            },
-            {
               "who": "vlad",
-              "title": "Ablauf und Zeit",
-              "text": "Wer spricht wann, mit Demo am Gerät"
+              "title": "Shotlist festlegen",
+              "text": "Vier Shots: Verstecken, Piepen näher, Fang, Handy-Einstellung"
             },
             {
               "who": "edward",
-              "title": "Geräte für die Demo",
-              "text": "Vier Geräte, Akkus geladen"
+              "title": "Geräte drehbereit",
+              "text": "Vier Geräte, Akku voll, ein Gerät als Sucher"
             },
             {
               "who": "dorian",
-              "title": "Einstieg und Demo-Regeln",
-              "text": "Wie eine Runde abläuft"
+              "title": "Regie und echter Ton",
+              "text": "Ansage und Klappe, Geräteton im Bild, kein Playback"
+            },
+            {
+              "who": [
+                "vlad",
+                "dorian",
+                "edward"
+              ],
+              "title": "Dreh im Schulhaus",
+              "text": "Korridor und Aussenplatz, jeder einmal vor der Kamera"
             }
           ]
         },
@@ -394,32 +389,36 @@
           "n": 3,
           "start": "15:30",
           "end": "16:10",
-          "title": "Fragen klären",
+          "title": "Schneiden und verteilen",
           "tasks": [
+            {
+              "who": "vlad",
+              "title": "Material sichten und schneiden",
+              "text": "Clips nach 05_Demo_Video, Trailer v3 mit echtem Bild"
+            },
+            {
+              "who": "vlad",
+              "title": "Töne von Dorian einbauen",
+              "text": "ping_tick und ping_dry in songs.h, beide Rollen bauen"
+            },
+            {
+              "who": "dorian",
+              "title": "ping_tick und ping_dry bauen",
+              "text": "Unter 60 ms, bei 8 Ticks pro Sekunde sauber, am Piezo hören"
+            },
+            {
+              "who": "edward",
+              "title": "Gewicht und Renderings",
+              "text": "Gerät wiegen für A-14, CAD-Renderings für die Folien"
+            },
             {
               "who": [
                 "vlad",
                 "dorian",
                 "edward"
               ],
-              "title": "Abgabe-Check",
-              "text": "Beide Mappen komplett, Anhang A bis F, Belege dabei"
-            },
-            {
-              "who": "vlad",
-              "title": "Digitale Fassung",
-              "text": "Frist Freitag 12.00, Tabelle der Lehrperson"
-            },
-            {
-              "who": "edward",
-              "title": "CAD-Export abheften",
-              "text": "Anhang E, .step oder .stl plus Renderings"
-            },
-            {
-              "who": "dorian",
-              "title": "Tonpaket abrunden",
-              "text": "ping_tick und ping_dry liefern, mode_next unter 60 ms (12 von 14 sind drin)",
-              "done": false
+              "title": "Kriterienblatt durchgehen",
+              "text": "Punkte auf Vlad, Dorian und Edward verteilen"
             }
           ]
         }
