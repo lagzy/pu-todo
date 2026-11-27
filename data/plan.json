@@ -1,6 +1,6 @@
 {
  "schema": "pu-todo/2",
- "updated": "2026-11-26",
+ "updated": "2026-11-27",
  "note": "Aufgaben aus STATUS.md, Pendenzenliste v5 und Kuchenverkauf-Plan; Zuteilung nach Rolle. Jede Aufgabe: Titel (was tun) und ein Satz mit den konkreten Punkten. Abgabe-Woche nach den Infos von Frau Stalder, Lektion 24.11.2026.",
  "schedule": {
   "weekday": "Dienstag",
@@ -314,6 +314,20 @@
      "who": "edward",
      "title": "Geräte drehbereit machen",
      "text": "Vier Geräte, Akkus voll, Gehäuse v2 montiert"
+    },
+    {
+     "who": [
+      "vlad",
+      "dorian",
+      "edward"
+     ],
+     "title": "Freigabeblatt unterschreiben",
+     "text": "Drei Unterschriften auf 01_Anforderungsliste_Freigabe_26.11.2026.docx"
+    },
+    {
+     "who": "edward",
+     "title": "Gehäuse v2 drucken",
+     "text": "Deckel Lid5 und Unterteil, dazu Fit-Test mit der echten Elektronik (A-13)"
     }
    ],
    "blocks": [
@@ -382,6 +396,15 @@
        ],
        "title": "Dreh im Schulhaus",
        "text": "Korridor und Aussenplatz, jeder einmal vor der Kamera"
+      },
+      {
+       "who": [
+        "vlad",
+        "dorian",
+        "edward"
+       ],
+       "title": "Testspiel 2 beim Drehen",
+       "text": "Vier Geräte, eine Runde Klassisch, Rückmeldungen notieren (A-18)"
       }
      ]
     },
@@ -419,6 +442,11 @@
        ],
        "title": "Kriterienblatt durchgehen",
        "text": "Punkte auf Vlad, Dorian und Edward verteilen"
+      },
+      {
+       "who": "dorian",
+       "title": "Testspiel 2 protokollieren",
+       "text": "Datum, Modus und Rückmeldungen ins Testspiel-Protokoll"
       }
      ]
     }
